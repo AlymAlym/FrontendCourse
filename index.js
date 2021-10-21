@@ -1,7 +1,7 @@
 import { askQuestion, answerQuestion } from './js/quiz.js'
 
-const question = askQuestion()
-console.log(question)
+const question = askQuestion();
+console.log(question);
 
 /**
  * {
@@ -13,5 +13,5 @@ console.log(question)
  * }
  */
 
-const answer = answerQuestion(question, 'a')
-console.log(answer ? 'correct' : 'incorrect')
+const answer = answerQuestion(question, 'a');
+console.log(answer ? 'correct' : 'incorrect');
