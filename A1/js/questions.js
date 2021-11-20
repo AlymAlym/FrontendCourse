@@ -1,7 +1,7 @@
 import { delay } from './delay.js'
 
 
-let questions = [
+export let questions = [
     { question: 'What\'s the biggest animal in the world?\n', correctAnswer: 'a', a: 'blue whale', b: 'pig', c: 'elephant', d: 'lion' },
     { question: 'Which country is brie cheese originally from?\n', correctAnswer: 'd', a: 'Austria', b: 'Germany', c: 'Italy', d: 'France' },
     { question: 'What year was Heinz established?\n', correctAnswer: 'c', a: '1900', b: '1903', c: '1869', d: '1788' },
