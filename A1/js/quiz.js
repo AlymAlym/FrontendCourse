@@ -1,8 +1,8 @@
 "use strict"
-import { questions } from './questions.js'
+import {getQuestions } from './questions.js'
 
 export function askQuestion () {
-    let question = questions[Math.floor(Math.random()*questions.length)];
+    let question = await getQuestions();
     const { correctAnswer, ...q } = question;
     return q;
     /* Alternative..
