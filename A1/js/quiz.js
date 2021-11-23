@@ -1,10 +1,15 @@
 "use strict"
-import { questions } from './questions.js'
+import {questions, getQuestions } from './questions.js'
 
-export function askQuestion () {
-    let question = questions[Math.floor(Math.random()*questions.length)];
-    const { correctAnswer, ...q } = question;
-    return q;
+export async function askQuestion () {
+    try {
+        let question = await getQuestions();
+        const { correctAnswer, ...q } = question;
+        return q;
+    } catch (error) {
+        console.log(error)
+    }
+
     /* Alternative..
         return question.question +
         "a: " + question.a + "\n" +
