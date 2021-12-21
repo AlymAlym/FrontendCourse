@@ -1,12 +1,13 @@
-import { askQuestion, answerQuestion } from './js/quiz.js'
+import { askQuestion, answerQuestion } from "./js/quiz.js";
 
 const question = askQuestion().then((question) => {
-    console.log(question);
+  console.log(question);
 
-    const answer = answerQuestion(question, 'a');
-    console.log(answer ? 'correct' : 'incorrect');
+  localStorage.setItem("question", question.question);
+
+  const answer = answerQuestion(question, "a");
+  console.log(answer ? "correct" : "incorrect");
 });
-
 
 /**
  * {
@@ -17,5 +18,3 @@ const question = askQuestion().then((question) => {
  *   d: 'JKU'
  * }
  */
-
-
