@@ -1,25 +1,29 @@
-"use strict"
-import {questions, getQuestions } from './questions.js'
+"use strict";
+import { getQuestions } from "./questions.js";
 
-export async function askQuestion () {
-    try {
-        let question = await getQuestions();
-        const { correctAnswer, ...q } = question;
-        return q;
-    } catch (error) {
-        console.log(error)
-    }
+export async function askQuestion() {
+  try {
+    const questions = await getQuestions();
+    const question = questions[Math.floor(Math.random() * questions.length)];
+    const { correctAnswer, ...q } = question;
+    return q;
+  } catch (error) {
+    console.log(error);
+  }
 
-    /* Alternative..
+  /* Alternative..
         return question.question +
         "a: " + question.a + "\n" +
         "b: " + question.b + "\n" +
         "c: " + question.c + "\n" +
         "d: " + question.d;*/
 }
-export function answerQuestion (q, answer) {
-    //Find question
-    let searchedQuestion = questions.find(element => element.question === q.question)
+export const answerQuestion = async (q, answer) => {
+  //Find question
+  const questions = await getQuestions();
+  const searchedQuestion = questions.find(
+    (element) => element.question === q.question
+  );
 
-    return searchedQuestion.correctAnswer === answer;
-}
+  return searchedQuestion.correctAnswer === answer;
+};

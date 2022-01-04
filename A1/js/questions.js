@@ -1,6 +1,6 @@
 import { delay } from "./delay.js";
 
-export let questions = [
+const questions = [
   {
     question: "What's the biggest animal in the world?\n",
     correctAnswer: "a",
@@ -45,7 +45,6 @@ export let questions = [
 
 export async function getQuestions() {
   await delay();
-  const question = questions[Math.floor(Math.random() * questions.length)];
 
-  return question;
+  return questions;
 }
