@@ -1,4 +1,4 @@
-import { render, home, quizTemp, resultTemp } from "./templates.js";
+import { render, home, quizTemp, resultTemp, errorTemp } from "./templates.js";
 import { askQuestion } from "./quiz.js";
 
 export const onRouteChange = async () => {
@@ -13,9 +13,8 @@ export const onRouteChange = async () => {
     const quiz = await quizTemp(question);
     render(container, quiz);
   } else if (pathname === "/result") {
-    const result = resultTemp();
-    render(container, result);
+    render(container, resultTemp());
   } else {
-    //TODO: errorpage
+    render(container, errorTemp());
   }
 };

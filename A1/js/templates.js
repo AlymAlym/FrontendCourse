@@ -11,6 +11,10 @@ const render = (nodeToRenderTo, nodeToRender) => {
   nodeToRenderTo.appendChild(nodeToRender);
 };
 
+/**
+ *
+ * @returns Home Template
+ */
 const home = async () => {
   const domElements = html(`
     <div class="grid place-items-center">
@@ -132,8 +136,20 @@ const resultTemp = () => {
   return domElements;
 };
 
+const errorTemp = () => {
+  const domElements = html(`
+    <div class="grid place-items-center">
+      <h1>ERROR</h1>
+    </div>
+  `);
+  return domElements;
+};
+
+/***
+ * Return either valid oder invalid class
+ */
 const getStatusClass = (questionAnswer, answer, res) => {
-  if (questionAnswer === answer) {
+  if (answer === questionAnswer) {
     if (res) {
       return "bg-green-200";
     } else {
@@ -142,4 +158,4 @@ const getStatusClass = (questionAnswer, answer, res) => {
   }
 };
 
-export { render, home, quizTemp, resultTemp };
+export { render, home, quizTemp, resultTemp, errorTemp };
