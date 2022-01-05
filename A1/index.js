@@ -1,21 +1,12 @@
-import { askQuestion, answerQuestion } from './js/quiz.js'
+import { onRouteChange } from "./js/routing.js";
 
-const question = askQuestion().then((question) => {
-    console.log(question);
+const nextButton = document.querySelector("#next-btn");
+const questionContainerElement = document.querySelector("#question-container");
+const questionElement = document.querySelector("#question");
+const answerButtonsElement = document.querySelector("#answer-buttons");
 
-    const answer = answerQuestion(question, 'a');
-    console.log(answer ? 'correct' : 'incorrect');
+onRouteChange();
+
+window.addEventListener("popstate", () => {
+  onRouteChange();
 });
-
-
-/**
- * {
- *   question: 'Whats the best university?',
- *   a: 'Hagenberg',
- *   b: 'FHS',
- *   c: 'TU',
- *   d: 'JKU'
- * }
- */
-
-
